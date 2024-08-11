@@ -1,1 +1,1 @@
-<a {{$attributes}} >{{$slot}}</a>
+<h3>{{$slot}}</h3>
