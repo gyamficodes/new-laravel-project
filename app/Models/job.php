@@ -27,6 +27,10 @@ class job
             ],
         ];
        }
+
+       public static function find(int $id): array  {
+    return    $job = \Illuminate\Support\Arr::first(static::all(), fn($job) => $job["id"] == $id);
+       }
 }
 
 
