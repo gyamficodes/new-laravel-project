@@ -6,10 +6,10 @@ use App\Models\post;
 
 
 Route::get('/', function () {
-   $jobs = job::all();
-   $posts = post::all();
-   dd($posts);
-   dd($jobs);
+//    $jobs = job::all();
+//    $posts = post::all();
+//    dd($posts);
+//    dd($jobs);
     return view('home' );
 });
 
