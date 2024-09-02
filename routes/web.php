@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\job;
-use App\Models\post;
+// use App\Models\post;
 
 
 Route::get('/', function () {
-//    $jobs = job::all();
+//   $jobs = job::all();
 //    $posts = post::all();
 //    dd($posts);
 //    dd($jobs);
