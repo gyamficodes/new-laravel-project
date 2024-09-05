@@ -11,8 +11,8 @@ class Tag extends Model
     protected $table = "tags";
     protected $fillable = ["name"];
 
-
-    public function Job()
+   //Many to Many relations
+    public function jobs()
     {
         return $this->belongsToMany(Job::class, relatedPivotKey: "job_listing_id") ;
     }

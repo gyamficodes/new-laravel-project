@@ -11,6 +11,7 @@ class Employer extends Model
      protected $table = 'employers'; // Ensure this matches your actual table name
      protected $fillable = ['name']; // Add any other attributes
 
+        //One to Many Relations
      public function jobs()
      {
       return $this->hasMany(Job::class);
