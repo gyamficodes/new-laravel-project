@@ -14,7 +14,7 @@ class Job extends Model
    protected $fillable = ["title", "salary"];
 
    //One to one Relations
-   public function Employer()
+   public function employer()
    {
        return $this->belongsTo(Employer::class);
    }
