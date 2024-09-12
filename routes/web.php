@@ -14,6 +14,8 @@ Route::get('/', function () {
 });
 
 
+
+
 Route::get('/jobs', function () {
     // $job = job::with("employer")->get();
     $job = job::with("employer")->paginate(4);
