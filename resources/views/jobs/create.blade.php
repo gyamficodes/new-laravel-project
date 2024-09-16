@@ -13,13 +13,16 @@
       <h2 class="text-base font-semibold leading-7 text-gray-900">Create A Job</h2>
       <p class="mt-1 text-sm leading-6 text-gray-600">We just need a handful of details</p>
 
-      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mb-3">
         <div class="sm:col-span-4">
           <label for="title" class="block text-sm font-medium leading-6 capitalize text-gray-900">title</label>
           <div class="mt-2">
             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="title" id="title" autocomplete="title" class="block flex-1 px-3 border-0 bg-transparent py-1.5  text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Title">
+              <input type="text" name="title" id="title" autocomplete="title" class="block flex-1 px-3 border-0 bg-transparent py-1.5  text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Title" required>
             </div>
+           <div class=" text-red-500 italic">    @error("title")
+            {{$message}}
+          @enderror</div>
           </div>
         </div>
 
@@ -28,8 +31,11 @@
           <label for="salary" class="block text-sm font-medium leading-6 capitalize text-gray-900">salary</label>
           <div class="mt-2">
             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <input type="text" name="salary" id="salary"  class="block flex-1 px-3 border-0 bg-transparent py-1.5  text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="$">
+              <input type="text" name="salary" id="salary"  class="block flex-1 px-3 border-0 bg-transparent py-1.5  text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="$" required>
             </div>
+            <div class=" text-red-500 italic">    @error("salary")
+              {{$message}}
+            @enderror</div>
           </div>
         </div>
 
@@ -37,6 +43,17 @@
 
       
       </div>
+    {{-- <div class=" italic">
+      @if($errors->any())
+      <div class="alert  text-red-700">
+          <ul>
+              @foreach($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+    </div>
+    @endif
+      </div> --}}
     </div>
 
   
