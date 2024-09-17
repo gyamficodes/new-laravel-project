@@ -50,6 +50,8 @@ Route::post('/jobs', function () {
     return redirect('/jobs');
 });
 
+
+
 Route::get('/contact', function () {
     return  view("contact");
 });
