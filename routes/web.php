@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 
 
-
+//index = show all jobs
 Route::get('/jobs', function () {
     // $job = job::with("employer")->get();
     
@@ -24,16 +24,19 @@ Route::get('/jobs', function () {
     return  view("jobs.index", ["jobs" => $job]);
 });
 
+//create = cretae jobs
 Route::get('/jobs/create', function () {
     return view('jobs.create');
 });
 
+//show
 Route::get('/jobs/{id}', function ($id) {
     $job = job::find($id);
     return view("jobs.show", ["job" => $job]);
 });
 
 
+//store job in db
 Route::post('/jobs', function () {
     //   dd(request()->all());
     //Validation
@@ -48,6 +51,27 @@ Route::post('/jobs', function () {
         "employer_id" => 1
     ]);
     return redirect('/jobs');
+});
+
+
+//edit 
+Route::get('/jobs/{id}/edit', function ($id) {
+    $job = job::find($id);
+    return view("jobs.edit", ["job" => $job]);
+});
+
+//update
+Route::patch('/jobs/{id}', function ($id) {
+     ///validate 
+     //autorize  (hold on..)
+     //update the job
+     //and persist
+
+});
+
+//destroy or delete
+Route::delete('/jobs/{id}', function ($id) {
+   
 });
 
 

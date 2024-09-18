@@ -1,1 +1,1 @@
-<a href="/jobs/create" class=" h-[40px] w-[100px] bg-slate-600 flex items-center justify-center text-white">{{$slot}}</a>
+<a href="/jobs/create" href="{{$slot}}"  class=" h-[40px] w-[100px] bg-[#ccc] flex items-center justify-center text-black">{{$slot}}</a>
