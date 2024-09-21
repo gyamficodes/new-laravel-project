@@ -18,7 +18,7 @@ Route::get('/', function () {
 //index = show all jobs
 Route::get('/jobs', function () {
     // $job = job::with("employer")->get();
-    
+
     // $job = job::with("employer")->paginate(4);
     $job = job::with("employer")->latest()->paginate(4); // lates means that every job we create should push to fist.
     return  view("jobs.index", ["jobs" => $job]);
@@ -44,7 +44,7 @@ Route::post('/jobs', function () {
         "title" => ["required", "min:3"],
         "salary" => ["required"],
     ]);
-    
+
     Job::create([
         "title" =>  request("title"),
         "salary" => request("salary"),
@@ -68,7 +68,7 @@ Route::patch('/jobs/{id}', function ($id) {
         "title" => ["required", "min:3"],
         "salary" => ["required"],
     ]);
-    
+
     // Find the job
     $job = job::findOrFail($id);
 
@@ -84,15 +84,14 @@ Route::patch('/jobs/{id}', function ($id) {
 
 //destroy or delete 
 Route::delete('/jobs/{id}', function ($id) {
-   //authorize job
-   
+    //Authorize (...on hold)
 
-//delete job
-   $job = job::findOrFail($id);
-   $job->delete();
-      //redirect
-      return  redirect('/jobs');
-
+    //find job
+    $job = Job::findOrFail($id);
+    //delete job
+    $job->delete();
+    //redirect to jobs
+    return redirect('/jobs')->with('success', 'Job deleted successfully.');
 });
 
 
