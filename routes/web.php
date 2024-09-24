@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
-use App\Models\job;
-use App\Models\post;
+// use App\Models\job;
+// use App\Models\post;
 
 
 // Route::get('/', function () {
