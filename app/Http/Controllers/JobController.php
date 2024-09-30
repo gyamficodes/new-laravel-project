@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\job;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class JobController extends Controller
 {
@@ -45,6 +48,26 @@ class JobController extends Controller
 
     public function edit(job $job)
     {
+        // Inline Authorization for Job Editing
+
+// Define a Gate for editing jobs
+Gate::define('edit-job', function (User $user, Job $job) {
+    // Check if the authenticated user is the employer of the job
+    // If the user is not the creator of the job, they are not authorized to edit it
+    return $job->employer->user->is($user);
+});
+
+// Attempt to authorize the action for the given job
+Gate::authorize('edit-job', $job);
+
+// Check if the user is not logged in (guest)
+if (Auth::guest()) {
+    // If the user is not authenticated, redirect them to the login page
+    return redirect('/login');
+}
+
+
+
         return view("jobs.edit", ["job" => $job]);
     }
 

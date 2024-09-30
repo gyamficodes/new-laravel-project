@@ -9,12 +9,15 @@ class Employer extends Model
 {
     use HasFactory;
      protected $table = 'employers'; // Ensure this matches your actual table name
-     protected $fillable = ['name']; // Add any other attributes
+     protected $fillable = ['name', 'user_id']; // Add any other attributes
 
        //One to many Relations;
      public function jobs()
      {
       return $this->hasMany(Job::class);
+     }
+     public function user(){
+      return $this->belongsTo(user::class);
      }
      
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
@@ -20,7 +21,12 @@ class SessionController extends Controller
            'password' => ['required']
         ]);
         //attempt to login
-        Auth::attempt($attributes);
+
+        if(!Auth::attempt($attributes)){
+            throw  ValidationException::withMessages([
+                'email' =>  "sorry, those credential do not match",
+            ]);
+        };
         //regenerate the token session
         request()->session()->regenerate();
         //redirect
