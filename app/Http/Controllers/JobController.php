@@ -50,15 +50,9 @@ class JobController extends Controller
     {
         // Inline Authorization for Job Editing
 
-// Define a Gate for editing jobs
-Gate::define('edit-job', function (User $user, Job $job) {
-    // Check if the authenticated user is the employer of the job
-    // If the user is not the creator of the job, they are not authorized to edit it
-    return $job->employer->user->is($user);
-});
 
 // Attempt to authorize the action for the given job
-Gate::authorize('edit-job', $job);
+// Gate::authorize('edit-job', $job);
 
 // Check if the user is not logged in (guest)
 if (Auth::guest()) {
