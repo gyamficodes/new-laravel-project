@@ -4,6 +4,7 @@ use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
+use Illuminate\Foundation\Console\RouteCacheCommand;
 use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
 
 // use App\Models\job;
@@ -35,12 +36,6 @@ Route::get('/jobs/{job}/edit', [JobController::class, "edit"])->middleware('auth
 Route::patch('/jobs/{job}', [JobController::class, "update"]);
 //destroy or delete 
 Route::delete('/jobs/{job}', [JobController::class, "delete"]);
-
-
-
-
-
-
 
 
 //Auth
