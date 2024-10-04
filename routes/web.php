@@ -4,6 +4,8 @@ use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
+use App\Jobs\TranslateJob;
+use App\Models\Job;
 use Illuminate\Foundation\Console\RouteCacheCommand;
 use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
 
@@ -18,6 +20,12 @@ use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentL
 //     //    dd($jobs);
 //     return view('home');
 // });
+
+Route::get('test', function(){
+    $job = Job::first();
+   TranslateJob::dispatch($job);
+    return "Done";
+});
 
 Route::view('/', 'Home');
 Route::view('/contact', 'contact');
