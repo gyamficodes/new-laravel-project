@@ -40,9 +40,9 @@
      <x-form-button>log out</x-form-button>
         </form>
         @endauth
+
+
            
-      
-            
           </div>
         </div>
         <div class="-mr-2 flex md:hidden">
